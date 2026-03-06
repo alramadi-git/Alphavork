@@ -1,0 +1,65 @@
+Table Tokens {
+  Uuid UUID [pk]
+  Type Int [not null]
+  Token Text [not null, unique]
+  IsRevoked Boolean [not null]
+  ExpiresAt Timestamp [not null]
+  CreatedAt Timestamp [not null]
+}
+
+Table Otps {
+  Uuid UUID [pk]
+  Type Int [not null]
+  Otp Text [not null, unique]
+  Attempts Int [not null]
+  IsUsed Boolean [not null]
+  ExpiresAt Timestamp [not null]
+  CreatedAt Timestamp [not null]
+}
+
+Table Images {
+  Id Text [pk]
+  Url Text [not null]
+}
+
+Table Locations {
+  Uuid UUID [pk]
+  Country Text [not null]
+  City Text [not null]
+  Street Text [not null]
+}
+
+Table Users {
+  Uuid UUID [pk]
+  AvatarId Text [unique, ref: > Images.Id]
+  LocationUuid UUID [not null, unique, ref: > Locations.Uuid]
+  Username Text [not null]
+  Birthday Date [not null]
+  PhoneNumber Text [not null, unique]
+  Email Text [not null, unique]
+  Password Text [not null]
+  Status Int [not null]
+  IsDeleted Boolean [not null]
+  DeletedAt Timestamp
+  UpdatedAt Timestamp [not null]
+  CreatedAt Timestamp [not null]
+}
+
+Table UserSettings {
+  Uuid UUID [pk]
+  UserUuid UUID [not null, unique, ref: > Users.Uuid]
+  IsEmailVerified Boolean [not null]
+  EmailVerifiedAt Timestamp
+}
+
+Table UserTokens {
+  Uuid UUID [pk]
+  UserUuid UUID [not null, ref: > Users.Uuid]
+  TokenUuid UUID [not null, unique, ref: > Tokens.Uuid]
+}
+
+Table UserOtps {
+  Uuid UUID [pk]
+  UserUuid UUID [not null, ref: > Users.Uuid]
+  OtpUuid UUID [not null, unique, ref: > Otps.Uuid]
+}

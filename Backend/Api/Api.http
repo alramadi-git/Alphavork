@@ -1,0 +1,205 @@
+@host = http://localhost:5170
+
+### -------------------------------------------------------
+### Authentication
+### -------------------------------------------------------
+
+### Register
+POST {{host}}/api/authentication/register
+Content-Type: multipart/form-data; boundary=----boundary
+
+------boundary
+Content-Disposition: form-data; name="Location.Country"
+
+Saudi Arabia
+------boundary
+Content-Disposition: form-data; name="Location.City"
+
+Jeddah
+------boundary
+Content-Disposition: form-data; name="Location.Street"
+
+King Abdulaziz Rd
+------boundary
+Content-Disposition: form-data; name="Username"
+
+mohammed92
+------boundary
+Content-Disposition: form-data; name="Birthday"
+
+1992-06-20
+------boundary
+Content-Disposition: form-data; name="PhoneNumber"
+
++966512345678
+------boundary
+Content-Disposition: form-data; name="Email"
+
+user@alphavork.com
+------boundary
+Content-Disposition: form-data; name="Password"
+
+Aa1!Aa1!
+------boundary--
+
+###
+
+### Login
+POST {{host}}/api/authentication/login
+Content-Type: application/json
+
+{
+  "email": "user@alphavork.com",
+  "password": "Aa1!Aa1!",
+  "rememberMe": false
+}
+
+###
+
+### Refresh Tokens
+POST {{host}}/api/authentication/refresh-tokens
+Content-Type: application/json
+
+{
+  "email": "user@alphavork.com",
+  "refreshToken": "ZmFrZXRva2VuZmFrZXRva2VuZmFrZQ=="
+}
+
+###
+
+### -------------------------------------------------------
+### Account (requires Bearer token)
+### -------------------------------------------------------
+
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.fake.token
+
+### Get Account
+GET {{host}}/api/account
+Authorization: Bearer {{accessToken}}
+
+###
+
+### Add Avatar
+POST {{host}}/api/account/avatar
+Authorization: Bearer {{accessToken}}
+Content-Type: multipart/form-data; boundary=----boundary
+
+------boundary
+Content-Disposition: form-data; name="NewAvatar"; filename="avatar.jpg"
+Content-Type: image/jpeg
+
+< ./avatar.jpg
+------boundary--
+
+###
+
+### Delete Avatar
+DELETE {{host}}/api/account/avatar
+Authorization: Bearer {{accessToken}}
+
+###
+
+### Update Account
+PATCH {{host}}/api/account
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "location": {
+    "country": "Saudi Arabia",
+    "city": "Riyadh",
+    "street": "Olaya St"
+  },
+  "username": "mohammed_updated",
+  "birthday": "1992-06-20",
+  "phoneNumber": "+966512345678"
+}
+
+###
+
+### Change Email
+PATCH {{host}}/api/account/change-email
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "newEmail": "newemail@alphavork.com"
+}
+
+###
+
+### Change Password
+PATCH {{host}}/api/account/change-password
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "newPassword": "Bb2@Bb2@"
+}
+
+###
+
+### Send Email Verification OTP
+POST {{host}}/api/account/send-email-verification-otp
+Authorization: Bearer {{accessToken}}
+
+###
+
+### Verify Email Verification OTP
+POST {{host}}/api/account/verify-email-verification-otp
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "otp": "aB3+Xk8="
+}
+
+###
+
+### Logout
+POST {{host}}/api/account/logout
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "refreshToken": "ZmFrZXRva2VuZmFrZXRva2VuZmFrZQ=="
+}
+
+###
+
+### -------------------------------------------------------
+### Reset Password
+### -------------------------------------------------------
+
+### Step 1 — Send Reset Password OTP
+POST {{host}}/api/reset-password/send-reset-password-otp
+Content-Type: application/json
+
+{
+  "email": "user@alphavork.com"
+}
+
+###
+
+### Step 2 — Verify Reset Password OTP
+POST {{host}}/api/reset-password/verify-reset-password-otp
+Content-Type: application/json
+
+{
+  "email": "user@alphavork.com",
+  "otp": "aB3+Xk8="
+}
+
+###
+
+### Step 3 — Reset Password
+POST {{host}}/api/reset-password
+Content-Type: application/json
+
+{
+  "email": "user@alphavork.com",
+  "resetPasswordToken": "ZmFrZXRva2VuZmFrZXRva2VuZmFrZQ==",
+  "newPassword": "Cc3#Cc3#"
+}
+
+###
