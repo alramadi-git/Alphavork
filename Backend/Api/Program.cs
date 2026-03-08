@@ -6,26 +6,25 @@ using System.Threading.RateLimiting;
 
 using Microsoft.EntityFrameworkCore;
 
-using Scalar.AspNetCore;
-
 using Microsoft.AspNetCore.Identity;
 
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+using Scalar.AspNetCore;
 
 using FluentValidation;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 // -------------------------------------------------------
 // Database
 // -------------------------------------------------------
 builder.Services.AddDbContext<Database.Contexts.AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // -------------------------------------------------------
-// Scrutor — auto-register Repositories, Services, Guards, Validators
+// Scrutor
 // -------------------------------------------------------
 builder.Services.Scan(scan => scan
     .FromAssemblies(
@@ -86,52 +85,26 @@ builder.Services.AddRateLimiter(options =>
 
     options.AddPolicy("AuthenticationLimiter", httpContext =>
     {
-        var ip = httpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
-            ?? httpContext.Connection.RemoteIpAddress?.ToString()
-            ?? "unknown";
+        var ip = httpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? httpContext.Connection.RemoteIpAddress?.ToString();
+        var path = httpContext.Request.Path.ToString();
 
-        var path = httpContext.Request.Path.ToString().ToLower();
-
-        var key = $"{ip}:{path}";
+        var key = $"{ip ?? "unknown"}:{path}";
 
         return RateLimitPartition.GetSlidingWindowLimiter(key, _ => new SlidingWindowRateLimiterOptions
         {
-            PermitLimit = 20,
-            Window = TimeSpan.FromMinutes(1),
-            SegmentsPerWindow = 6,
+            PermitLimit = 100,
+            Window = TimeSpan.FromDays(1),
+            SegmentsPerWindow = 24,
             QueueLimit = 0,
         });
     });
 
     options.AddPolicy("ResetPasswordLimiter", httpContext =>
     {
-        var ip = httpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
-            ?? httpContext.Connection.RemoteIpAddress?.ToString()
-            ?? "unknown";
+        var ip = httpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? httpContext.Connection.RemoteIpAddress?.ToString();
+        var path = httpContext.Request.Path.ToString();
 
-        var path = httpContext.Request.Path.ToString().ToLower();
-
-        var key = $"{ip}:{path}";
-
-        if (httpContext.Request.HasJsonContentType())
-        {
-            httpContext.Request.EnableBuffering();
-
-            var body = new StreamReader(httpContext.Request.Body).ReadToEnd();
-
-            httpContext.Request.Body.Position = 0;
-
-            var email = System.Text.Json.JsonDocument.Parse(body)
-                .RootElement
-                .TryGetProperty("email", out var emailProp)
-                    ? emailProp.GetString()
-                    : null;
-
-            if (!string.IsNullOrEmpty(email))
-            {
-                key = $"{email.ToLower()}:{path}";
-            }
-        }
+        var key = $"{ip ?? "unknown"}:{path}";
 
         return RateLimitPartition.GetSlidingWindowLimiter(key, _ => new SlidingWindowRateLimiterOptions
         {
@@ -144,10 +117,10 @@ builder.Services.AddRateLimiter(options =>
 
     options.AddPolicy("AccountLimiter", httpContext =>
     {
-        var uuid = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)!;
-        var path = httpContext.Request.Path.ToString().ToLower();
+        var uuid = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var path = httpContext.Request.Path.ToString();
 
-        var key = $"{uuid}:{path}";
+        var key = $"{uuid ?? "unknown"}:{path}";
 
         return RateLimitPartition.GetSlidingWindowLimiter(key, _ => new SlidingWindowRateLimiterOptions
         {
@@ -174,9 +147,7 @@ builder.Services
         ValidateIssuerSigningKey = true,
         ValidIssuer = userAccessTokenOption.Issuer,
         ValidAudience = userAccessTokenOption.Audience,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(userAccessTokenOption.SecretKey)
-        )
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(userAccessTokenOption.SecretKey))
     };
     options.Events = new JwtBearerEvents
     {
@@ -192,8 +163,8 @@ builder.Services
                 StatusCode = StatusCodes.Status401Unauthorized,
                 Message = context.AuthenticateFailure switch
                 {
-                    null => "Missing access token.",
                     SecurityTokenExpiredException => "Expired access token.",
+                    null => "Missing access token.",
                     _ => "Invalid access token."
                 },
                 Help = "Please provide a valid Bearer token in the Authorization header."
@@ -225,7 +196,7 @@ builder.Services.AddCors(options =>
         if (builder.Environment.IsDevelopment())
         {
             policy
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins("http://localhost:4200")
             .AllowAnyHeader()
             .AllowAnyMethod();
         }

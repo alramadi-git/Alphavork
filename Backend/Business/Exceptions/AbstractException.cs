@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http;
-
 namespace Business.Exceptions;
 
 public abstract class AbstractException(int statusCode, string message, string help) : Exception(message)
