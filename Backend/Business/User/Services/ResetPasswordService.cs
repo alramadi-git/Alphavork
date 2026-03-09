@@ -4,7 +4,7 @@ using Business.Interfaces;
 
 using Business.Exceptions;
 
-using Business.User.Validations.Guards;
+using Business.User.Guards;
 
 using Business.Modules.Hashing.Services;
 

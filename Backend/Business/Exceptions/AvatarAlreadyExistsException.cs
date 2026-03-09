@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Http;
+using Business.Exceptions.Enums;
 
 namespace Business.Exceptions;
 
 public class AvatarAlreadyExistsException() : AbstractException(
     StatusCodes.Status409Conflict,
-    "An avatar already exists.",
+    ExceptionTypeEnum.AvatarAlreadyExists,
     "Please delete your current avatar before uploading a new one."
 );

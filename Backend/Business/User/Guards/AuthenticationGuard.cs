@@ -3,12 +3,12 @@ using FluentValidation;
 using Business.Interfaces;
 
 using Business.Modules.Validations.Validators;
-using Business.User.Validations.Validators;
+using Business.User.Validators;
 
 using Business.Inputs;
 using Business.User.Inputs;
 
-namespace Business.User.Validations.Guards;
+namespace Business.User.Guards;
 
 public class AuthenticationGuard(RegisterValidator registerValidator, RefreshTokensValidator refreshTokensValidator, LoginValidator loginValidator) : IGuard
 {

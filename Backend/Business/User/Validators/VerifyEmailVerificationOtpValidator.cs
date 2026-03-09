@@ -4,7 +4,7 @@ using Business.Modules.Validations.Extensions;
 
 using Business.User.Inputs;
 
-namespace Business.User.Validations.Validators;
+namespace Business.User.Validators;
 
 public class VerifyEmailVerificationOtpValidator : AbstractValidator<VerifyEmailVerificationOtpInput>
 {

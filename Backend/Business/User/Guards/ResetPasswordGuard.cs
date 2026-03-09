@@ -2,11 +2,11 @@ using FluentValidation;
 
 using Business.Interfaces;
 
-using Business.User.Validations.Validators;
+using Business.User.Validators;
 
 using Business.User.Inputs;
 
-namespace Business.User.Validations.Guards;
+namespace Business.User.Guards;
 
 public class ResetPasswordGuard(SendResetPasswordOtpValidator sendResetPasswordOtpValidator, VerifyResetPasswordOtpValidator verifyResetPasswordOtpValidator, ResetPasswordValidator resetPasswordValidator) : IGuard
 {

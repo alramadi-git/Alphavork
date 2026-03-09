@@ -1,0 +1,31 @@
+namespace Business.Exceptions.Enums;
+
+public enum ExceptionTypeEnum
+{
+    AccountNotRegistered,
+    ActiveEmailVerificationOtpAlreadyExists,
+    ActiveResetPasswordOtpAlreadyExists,
+    AvatarAlreadyExists,
+    AvatarUploadFailed,
+    EmailAlreadyVerified,
+    EmailNotVerified,
+    InvalidEmailVerificationOtp,
+    InvalidPassword,
+    InvalidRefreshToken,
+    InvalidResetPasswordOtp,
+    InvalidResetPasswordToken,
+    NoActiveEmailVerificationOtp,
+    NoActiveRefreshToken,
+    NoActiveResetPasswordOtp,
+    NoActiveResetPasswordToken,
+    NoAvatar,
+    SameEmail,
+    SamePassword,
+    SendingEmailVerificationOtpFailed,
+    SendingResetPasswordOtpFailed,
+    UserAlreadyExists,
+    UserNotFound,
+    UserSettingsNotFound,
+    ValidationError,
+    UnexpectedError
+}

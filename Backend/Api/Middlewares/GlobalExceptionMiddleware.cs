@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Diagnostics;
 
+using Business.Exceptions.Enums;
 using FluentValidation;
 
 namespace Api.Middlewares;
@@ -16,21 +17,21 @@ public class GlobalExceptionMiddleware : IExceptionHandler
             ValidationException validationEx => new Business.Models.ExceptionModel
             {
                 StatusCode = StatusCodes.Status400BadRequest,
-                Message = "One or more validation errors occurred. Please check your input and try again.",
+                ExceptionType = ExceptionTypeEnum.ValidationError,
                 Help = string.Join(" ", validationEx.Errors.Select(e => e.ErrorMessage))
             },
 
             Business.Exceptions.AbstractException abstractEx => new Business.Models.ExceptionModel
             {
                 StatusCode = abstractEx.StatusCode,
-                Message = abstractEx.Message,
+                ExceptionType = abstractEx.ExceptionType,
                 Help = abstractEx.Help
             },
 
             _ => new Business.Models.ExceptionModel
             {
                 StatusCode = StatusCodes.Status500InternalServerError,
-                Message = "An unexpected error occurred. Please try again later.",
+                ExceptionType = ExceptionTypeEnum.UnexpectedError,
                 Help = "If this problem persists, please contact support."
             }
         };

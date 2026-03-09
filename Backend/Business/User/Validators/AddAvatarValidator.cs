@@ -2,7 +2,7 @@ using FluentValidation;
 
 using Business.Modules.Validations.Extensions;
 
-namespace Business.User.Validations.Validators;
+namespace Business.User.Validators;
 
 using Business.User.Inputs;
 

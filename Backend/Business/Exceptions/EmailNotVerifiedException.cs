@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Http;
+using Business.Exceptions.Enums;
 
 namespace Business.Exceptions;
 
 public class EmailNotVerifiedException() : AbstractException(
     StatusCodes.Status400BadRequest,
-    "Email is not verified.",
+    ExceptionTypeEnum.EmailNotVerified,
     "Please verify your email address before proceeding."
 );
