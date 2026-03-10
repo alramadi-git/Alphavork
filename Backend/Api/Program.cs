@@ -78,7 +78,7 @@ builder.Services.AddRateLimiter(options =>
         await context.HttpContext.Response.WriteAsJsonAsync(new Business.Models.ExceptionModel
         {
             StatusCode = StatusCodes.Status429TooManyRequests,
-            Message = "Too many requests.",
+            ExceptionType = Business.Exceptions.Enums.ExceptionTypeEnum.TooManyRequests,
             Help = "You are sending requests too fast. Please slow down and try again later."
         }, cancellationToken);
     };
@@ -161,11 +161,11 @@ builder.Services
             await context.Response.WriteAsJsonAsync(new Business.Models.ExceptionModel
             {
                 StatusCode = StatusCodes.Status401Unauthorized,
-                Message = context.AuthenticateFailure switch
+                ExceptionType = context.AuthenticateFailure switch
                 {
-                    SecurityTokenExpiredException => "Expired access token.",
-                    null => "Missing access token.",
-                    _ => "Invalid access token."
+                    SecurityTokenExpiredException => Business.Exceptions.Enums.ExceptionTypeEnum.ExpiredAccessToken,
+                    null => Business.Exceptions.Enums.ExceptionTypeEnum.MissingAccessToken,
+                    _ => Business.Exceptions.Enums.ExceptionTypeEnum.InvalidAccessToken
                 },
                 Help = "Please provide a valid Bearer token in the Authorization header."
             });
@@ -179,7 +179,7 @@ builder.Services
             await context.Response.WriteAsJsonAsync(new Business.Models.ExceptionModel
             {
                 StatusCode = StatusCodes.Status403Forbidden,
-                Message = "You do not have permission to access this resource.",
+                ExceptionType = Business.Exceptions.Enums.ExceptionTypeEnum.Forbidden,
                 Help = "This action requires elevated privileges."
             });
         }

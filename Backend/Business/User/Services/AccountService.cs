@@ -6,8 +6,6 @@ using Business.Exceptions;
 
 using AutoMapper;
 
-using Business.User.Validations.Guards;
-
 using Business.Modules.Hashing.Services;
 
 using Business.Modules.Imagekit.Services;
@@ -19,6 +17,7 @@ using Business.User.Models;
 using Business.Modules.Otp.Services;
 using Business.Modules.EmailSender.Services;
 using Business.User.EmailSender.Extensions;
+using Business.User.Guards;
 
 namespace Business.User.Services;
 

@@ -10,7 +10,7 @@ using Business.Exceptions;
 
 using Business.User.Options;
 
-using Business.User.Validations.Guards;
+using Business.User.Guards;
 
 using Business.Modules.Hashing.Services;
 
@@ -85,7 +85,7 @@ public class AuthenticationService(IMapper mapper, AuthenticationGuard authentic
         await authenticationGuard.LoginAsync(input);
 
         var userEntity = await userRepository.GetActiveUserByEmailAsync(input.Email)
-        ?? throw new AccountNotRegisteredException ();
+        ?? throw new AccountNotRegisteredException();
 
         var userSettingsEntity = await userSettingsRepository.GetByUserUuidAsync(userEntity.Uuid)
         ?? throw new UserSettingsNotFoundException();

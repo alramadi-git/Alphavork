@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Http;
+using Business.Exceptions.Enums;
 
 namespace Business.Exceptions;
 
 public class NoActiveEmailVerificationOtpException() : AbstractException(
     StatusCodes.Status404NotFound,
-    "No active email verification OTP found.",
+    ExceptionTypeEnum.NoActiveEmailVerificationOtp,
     "Please request a new email verification OTP."
 );
