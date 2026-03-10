@@ -27,5 +27,10 @@ public enum ExceptionTypeEnum
     UserNotFound,
     UserSettingsNotFound,
     ValidationError,
-    UnexpectedError
+    UnexpectedError,
+    TooManyRequests,
+    MissingAccessToken,
+    ExpiredAccessToken,
+    InvalidAccessToken,
+    Forbidden
 }

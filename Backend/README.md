@@ -6,18 +6,18 @@ A production-ready **.NET 10 / ASP.NET Core** REST API backed by **PostgreSQL**.
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | .NET 10 / ASP.NET Core |
-| Database | PostgreSQL |
-| ORM | Entity Framework Core |
-| Validation | FluentValidation |
-| Mapping | AutoMapper |
-| DI Registration | Scrutor |
-| Hashing | PBKDF2 (Microsoft.AspNetCore.Identity) |
-| Email | MailKit |
-| CDN | Imagekit |
-| Phone Validation | libphonenumber-csharp |
+| Layer            | Technology                             |
+| ---------------- | -------------------------------------- |
+| Framework        | .NET 10 / ASP.NET Core                 |
+| Database         | PostgreSQL                             |
+| ORM              | Entity Framework Core                  |
+| Validation       | FluentValidation                       |
+| Mapping          | AutoMapper                             |
+| DI Registration  | Scrutor                                |
+| Hashing          | PBKDF2 (Microsoft.AspNetCore.Identity) |
+| Email            | MailKit                                |
+| CDN              | Imagekit                               |
+| Phone Validation | libphonenumber-csharp                  |
 
 ---
 
@@ -36,6 +36,7 @@ The layers are strictly separated. Api depends on Business. Business depends on 
 ## Features
 
 **Authentication**
+
 - Register with location, birthday, phone number, email, and password
 - Login with RememberMe support (1 day or 30 day refresh token lifetime)
 - Multi-session support — all devices stay logged in independently
@@ -44,6 +45,7 @@ The layers are strictly separated. Api depends on Business. Business depends on 
 - Password rehash-on-login when PBKDF2 iteration cost increases
 
 **Account Management**
+
 - Get account (returns full profile including settings)
 - Update profile — username, birthday, phone number, location
 - Change email — revokes all active sessions, resets email verification
@@ -52,15 +54,18 @@ The layers are strictly separated. Api depends on Business. Business depends on 
 - Logout — revokes the specific session by refresh token
 
 **Email Verification**
+
 - Send OTP — hashed, 15 minute expiry, max 3 attempts
 - Verify OTP — marks email as verified with timestamp
 
 **Password Reset**
+
 - Step 1: Send OTP to email (requires verified email)
 - Step 2: Verify OTP — issues a short-lived reset password token (30 min)
 - Step 3: Reset password using token — revokes all active sessions
 
 **Security**
+
 - All passwords hashed with PBKDF2
 - All OTPs and tokens hashed before storage — never stored in plain text
 - Tokens verified by hash comparison, never by plain value lookup
@@ -74,11 +79,11 @@ The layers are strictly separated. Api depends on Business. Business depends on 
 
 ## Rate Limiting
 
-| Policy | Endpoints | Window | Limit | Key |
-|---|---|---|---|---|
-| `AuthenticationLimiter` | register, login, refresh-tokens | 1 min | 20 | IP + endpoint |
-| `ResetPasswordLimiter` | send OTP, verify OTP, reset | 15 min | 5 | email + endpoint (fallback: IP) |
-| `AccountLimiter` | all account endpoints | 1 min | 60 | UUID + endpoint |
+| Policy                  | Endpoints                       | Window | Limit | Key             |
+| ----------------------- | ------------------------------- | ------ | ----- | --------------- |
+| `AuthenticationLimiter` | register, login, refresh-tokens | 1 day  | 100   | IP + endpoint   |
+| `ResetPasswordLimiter`  | send OTP, verify OTP, reset     | 15 min | 5     | IP + endpoint   |
+| `AccountLimiter`        | all account endpoints           | 1 min  | 60    | UUID + endpoint |
 
 Production deployments behind a reverse proxy — reads `X-Forwarded-For` before falling back to `RemoteIpAddress`.
 
@@ -86,12 +91,12 @@ Production deployments behind a reverse proxy — reads `X-Forwarded-For` before
 
 ## Exception Handling
 
-All exceptions inherit `AbstractException` with a status code, message, and help text. The global middleware catches every exception and returns a consistent JSON shape:
+All exceptions inherit `AbstractException` with a status code, typed exception enum, and help text. The global middleware catches every exception and returns a consistent JSON shape:
 
 ```json
 {
   "statusCode": 404,
-  "message": "Account not registered.",
+  "exceptionType": "AccountNotRegistered",
   "help": "No account found with the provided details. Please check your credentials or create a new account."
 }
 ```
@@ -120,12 +125,14 @@ All foreign key columns are explicitly indexed. Junction tables allow multiple a
 ## Getting Started
 
 **Prerequisites**
+
 - .NET 10 SDK
 - PostgreSQL
 - Imagekit account
 - Gmail account (or any SMTP)
 
 **1. Clone the repository**
+
 ```bash
 git clone https://github.com/your-username/alphavork-backend.git
 cd alphavork-backend
@@ -150,6 +157,7 @@ dotnet user-secrets set "EmailSenders:NoReplyEmailSender:Password" "your-email-p
 ```
 
 **4. Run**
+
 ```bash
 dotnet run --project Api
 ```
@@ -161,31 +169,34 @@ API reference available at `http://localhost:5170/scalar` in development.
 ## API Endpoints
 
 ### Authentication — `api/authentication`
-| Method | Route | Auth | Description |
-|---|---|---|---|
-| POST | `/register` | — | Create a new account |
-| POST | `/login` | — | Login and receive tokens |
-| POST | `/refresh-tokens` | — | Rotate refresh token |
+
+| Method | Route             | Auth | Description              |
+| ------ | ----------------- | ---- | ------------------------ |
+| POST   | `/register`       | —    | Create a new account     |
+| POST   | `/login`          | —    | Login and receive tokens |
+| POST   | `/refresh-tokens` | —    | Rotate refresh token     |
 
 ### Account — `api/account`
-| Method | Route | Auth | Description |
-|---|---|---|---|
-| GET | `/` | ✓ | Get full account profile |
-| PATCH | `/` | ✓ | Update profile |
-| PATCH | `/change-email` | ✓ | Change email address |
-| PATCH | `/change-password` | ✓ | Change password |
-| POST | `/avatar` | ✓ | Upload avatar |
-| DELETE | `/avatar` | ✓ | Delete avatar |
-| POST | `/send-email-verification-otp` | ✓ | Send verification OTP |
-| POST | `/verify-email-verification-otp` | ✓ | Verify email |
-| POST | `/logout` | ✓ | Logout current session |
+
+| Method | Route                            | Auth | Description              |
+| ------ | -------------------------------- | ---- | ------------------------ |
+| GET    | `/`                              | ✓    | Get full account profile |
+| PATCH  | `/`                              | ✓    | Update profile           |
+| PATCH  | `/change-email`                  | ✓    | Change email address     |
+| PATCH  | `/change-password`               | ✓    | Change password          |
+| POST   | `/avatar`                        | ✓    | Upload avatar            |
+| DELETE | `/avatar`                        | ✓    | Delete avatar            |
+| POST   | `/send-email-verification-otp`   | ✓    | Send verification OTP    |
+| POST   | `/verify-email-verification-otp` | ✓    | Verify email             |
+| POST   | `/logout`                        | ✓    | Logout current session   |
 
 ### Reset Password — `api/reset-password`
-| Method | Route | Auth | Description |
-|---|---|---|---|
-| POST | `/send-reset-password-otp` | — | Send OTP to email |
-| POST | `/verify-reset-password-otp` | — | Verify OTP, receive reset token |
-| POST | `/` | — | Reset password using token |
+
+| Method | Route                        | Auth | Description                     |
+| ------ | ---------------------------- | ---- | ------------------------------- |
+| POST   | `/send-reset-password-otp`   | —    | Send OTP to email               |
+| POST   | `/verify-reset-password-otp` | —    | Verify OTP, receive reset token |
+| POST   | `/`                          | —    | Reset password using token      |
 
 ---
 
@@ -218,7 +229,7 @@ Backend/
 │       ├── Options/         # JWT options
 │       ├── Profiles/        # AutoMapper profiles
 │       ├── Services/        # AuthenticationService, AccountService, ResetPasswordService
-│       └── Validations/     # User-specific validators
+│       └── Validators/      # User-specific validators
 └── Database/
     ├── Contexts/            # AppDbContext
     ├── Entities/            # All EF entities
