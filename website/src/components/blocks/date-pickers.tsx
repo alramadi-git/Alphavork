@@ -5,7 +5,7 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { localeEnum } from "@/features/i18n/enums/locale";
 import { useLocale } from "next-intl";
 
-import { DateFormatterLibrary } from "@/features/formats/libraries/date-formatter-library";
+import { DateFormatterLibrary } from "@/features/formatters/libraries/date-formatter-library";
 
 import { IconCalendar } from "@tabler/icons-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";

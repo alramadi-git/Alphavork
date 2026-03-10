@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 
 import { localeEnum } from "@/features/i18n/enums/locale";
-import { DateFormatterLibrary } from "@/features/formats/libraries/date-formatter-library";
+import { DateFormatterLibrary } from "@/features/formatters/libraries/date-formatter-library";
 
 import { useRouter } from "@/features/i18n/navigation";
 import { useId, useRef } from "react";

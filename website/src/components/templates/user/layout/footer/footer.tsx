@@ -9,8 +9,6 @@ import {
   IconBrandYoutube,
 } from "@tabler/icons-react";
 
-import Newsletter from "./newsletter";
-
 import { Separator } from "@/components/ui/separator";
 
 import { Logo } from "@/components/blocks/images";
@@ -33,15 +31,12 @@ export default async function Footer() {
     <footer className="dark section bg-background text-foreground">
       <div className="container space-y-6">
         <div className="grid gap-12 md:grid-cols-8">
-          <div className="space-y-8 md:col-span-4">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Logo className="size-8" />
-                <h3 className="text-2xl font-semibold">{tFooter("title")}</h3>
-              </div>
-              <p className="text-muted-foreground">{tFooter("description")}</p>
+          <div className="md:col-span-4 space-y-2">
+            <div className="flex items-center gap-2">
+              <Logo className="size-8" />
+              <h3 className="text-2xl font-semibold">{tFooter("title")}</h3>
             </div>
-            <Newsletter />
+            <p className="text-muted-foreground">{tFooter("description")}</p>
           </div>
           <div className="xs:grid-cols-2 grid gap-6 md:col-span-4 lg:grid-cols-3">
             {menus.map((menu) => (
