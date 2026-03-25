@@ -8,7 +8,7 @@ import { SearchParamsLibrary } from "@/features2/url/libraries/search-params-lib
 
 import { usePathname, useSearchParams } from "next/navigation";
 
-export function LinkLocale(props: Omit<LinkPropsType, "href">) {
+export function LocaleLink(props: Omit<LinkPropsType, "href">) {
   const pathname = usePathname();
 
   const searchParams = new SearchParamsLibrary(useSearchParams().toString());

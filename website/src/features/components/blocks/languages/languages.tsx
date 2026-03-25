@@ -20,7 +20,7 @@ import {
 } from "@/features/components/ui/command";
 
 import { Button } from "@/features/components/ui/button";
-import { LinkLocale } from "@/features/components/blocks/links/link-locale";
+import { LocaleLink } from "@/features/components/blocks/links/locale-link";
 import { LanguagesPropsType } from "./types/languages-props.type";
 import { CountryType } from "./types/country.type";
 import { continents } from "./constants/continents";
@@ -35,7 +35,7 @@ export default function Languages({ align = "start" }: LanguagesPropsType) {
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="w-full justify-between text-sm font-normal"
+          className="w-full justify-between font-normal"
         >
           <div className="flex items-center gap-3">
             <span className="text-lg">{defaultCountry.flag}</span>
@@ -60,14 +60,14 @@ export default function Languages({ align = "start" }: LanguagesPropsType) {
                       value={country.label}
                       className="cursor-pointer gap-3"
                     >
-                      <LinkLocale locale={country.locale}>
+                      <LocaleLink locale={country.locale}>
                         <span className="text-lg leading-none">
                           {country.flag}
                         </span>
                         <span dir={country.direction} className="line-clamp-1">
                           {country.label}
                         </span>
-                      </LinkLocale>
+                      </LocaleLink>
                     </CommandItem>
                   ))}
               </CommandGroup>
