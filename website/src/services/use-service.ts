@@ -1,6 +1,6 @@
 "use client";
 
-import { errorTypeEnum } from "./enums/error-type-enum";
+import { ErrorTypeEnum } from "./enums/error-type.enum";
 
 import {
   successServiceType,
@@ -29,7 +29,7 @@ export default function useService() {
       if (error instanceof ZodError) {
         return {
           isSuccess: false,
-          type: errorTypeEnum.validationError,
+          type: ErrorTypeEnum.validationError,
           help: "Validation error. Please check your input and try again.",
         };
       }
@@ -37,14 +37,14 @@ export default function useService() {
       if (error instanceof AxiosError) {
         return {
           isSuccess: false,
-          type: errorTypeEnum.networkError,
+          type: ErrorTypeEnum.networkError,
           help: "A network error occurred. Please try again later.",
         };
       }
 
       return {
         isSuccess: false,
-        type: errorTypeEnum.unknownError,
+        type: ErrorTypeEnum.unknownError,
         help: "An unknown error occurred. Please try again later.",
       };
     }

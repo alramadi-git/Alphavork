@@ -31,19 +31,19 @@ const eslintConfig = [
           name: "next-themes",
           importNames: ["ThemeProvider"],
           message:
-            "Please import from `@/components/providers/theme-provider` instead.",
+            "Please import from `@/features/components/providers/theme-provider` instead.",
         },
         /** Images */
         {
           name: "next/image",
           message:
-            "Please import HDImage or FullHDImage from `@/components/blocks/images` instead.",
+            "Please import HDImage or FullHDImage from `@/features/components/blocks/images` instead.",
         },
         /** Next Intl */
         {
           name: "next/link",
           message:
-            "Please import from `@/components/locals/blocks/links` instead.",
+            "Please import from `@/features/components/locals/blocks/links` instead.",
         },
         {
           name: "next/navigation",
@@ -59,7 +59,7 @@ const eslintConfig = [
           name: "@/i18n/navigation",
           importNames: ["Link"],
           message:
-            "Please import from `@/components/locals/blocks/links` instead.",
+            "Please import from `@/features/components/locals/blocks/links` instead.",
         },
       ],
     },

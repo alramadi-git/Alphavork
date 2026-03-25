@@ -5,139 +5,32 @@
   },
   "components": {
     "images": {
+      "logo": {
+        "url": "https://ik.imagekit.io/alramadi/alphavork/template/logo.png",
+        "alternate": "Alphavork Logo"
+      },
       "placeholder": {
-        "url": "https://ik.imagekit.io/alramadi/alphavork/placeholder.png",
+        "url": "https://ik.imagekit.io/alramadi/alphavork/template/placeholder.png",
         "alternate": "Placeholder"
       },
-      "logo": {
-        "url": "https://ik.imagekit.io/alramadi/alphavork/logo.png",
-        "alternate": "Alphavork Logo"
+      "not-found": {
+        "url": "https://ik.imagekit.io/alramadi/alphavork/template/not-found.png",
+        "alternate": "Not Found"
       }
     },
     "languages": {
-      "empty": "No matching languages found",
-      "placeholder": "Search your language...",
-      "default-value": {
-        "flag": "🇺🇸",
-        "label": "English (United States)"
-      },
-      "continents": [
-        {
-          "label": "Africa",
-          "countries": [
-            {
-              "locale": "ar-MA",
-              "direction": "rtl",
-              "flag": "🇲🇦",
-              "label": "العربية (المغرب)"
-            },
-            {
-              "locale": "en-NG",
-              "direction": "ltr",
-              "flag": "🇳🇬",
-              "label": "English (Nigeria)"
-            },
-            {
-              "locale": "en-ZA",
-              "direction": "ltr",
-              "flag": "🇿🇦",
-              "label": "English (South Africa)"
-            }
-          ]
-        },
-        {
-          "label": "America",
-          "countries": [
-            {
-              "locale": "en-CA",
-              "direction": "ltr",
-              "flag": "🇨🇦",
-              "label": "English (Canada)"
-            },
-            {
-              "locale": "es-MX",
-              "direction": "ltr",
-              "flag": "🇲🇽",
-              "label": "Español (México)"
-            },
-            {
-              "locale": "en-US",
-              "direction": "ltr",
-              "flag": "🇺🇸",
-              "label": "English (United States)"
-            }
-          ]
-        },
-        {
-          "label": "Asia",
-          "countries": [
-            {
-              "locale": "zh-CN",
-              "direction": "ltr",
-              "flag": "🇨🇳",
-              "label": "中文 (中国)"
-            },
-            {
-              "locale": "hi-IN",
-              "direction": "ltr",
-              "flag": "🇮🇳",
-              "label": "हिन्दी (भारत)"
-            },
-            {
-              "locale": "ja-JP",
-              "direction": "ltr",
-              "flag": "🇯🇵",
-              "label": "日本語 (日本)"
-            },
-            {
-              "locale": "ar-SA",
-              "direction": "rtl",
-              "flag": "🇸🇦",
-              "label": "العربية (المملكة العربية السعودية)"
-            }
-          ]
-        },
-        {
-          "label": "Europe",
-          "countries": [
-            {
-              "locale": "fr-FR",
-              "direction": "ltr",
-              "flag": "🇫🇷",
-              "label": "Français (France)"
-            },
-            {
-              "locale": "de-DE",
-              "direction": "ltr",
-              "flag": "🇩🇪",
-              "label": "Deutsch (Deutschland)"
-            },
-            {
-              "locale": "en-GB",
-              "direction": "ltr",
-              "flag": "🇬🇧",
-              "label": "English (United Kingdom)"
-            }
-          ]
-        },
-        {
-          "label": "Oceania",
-          "countries": [
-            {
-              "locale": "en-AU",
-              "direction": "ltr",
-              "flag": "🇦🇺",
-              "label": "English (Australia)"
-            },
-            {
-              "locale": "en-NZ",
-              "direction": "ltr",
-              "flag": "🇳🇿",
-              "label": "English (New Zealand)"
-            }
-          ]
+      "data": {
+        "default-country": {
+          "direction": "ltr",
+          "locale": "en-US",
+          "flag": "🇺🇸",
+          "label": "English (United States)"
         }
-      ]
+      },
+      "ui": {
+        "placeholder": "Search your language...",
+        "when-no-match": "No matching languages found"
+      }
     },
     "fields": {
       "phone-number": {
@@ -164,8 +57,8 @@
     "layout": {
       "metadata": {
         "title": {
-          "default": "Alphavork",
-          "template": "%s | Alphavork"
+          "default": "Alphavork Template",
+          "template": "%s | Alphavork Template"
         },
         "description": "A comprehensive SaaS boilerplate built with Next.js and .NET Web API, providing everything you need to launch your software-as-a-service product quickly and efficiently.",
         "icons": {
@@ -173,26 +66,26 @@
             {
               "sizes": "16x16",
               "type": "image/png",
-              "url": "https://ik.imagekit.io/alramadi/alphavork/icons/favicon-16x16.png"
+              "url": "https://ik.imagekit.io/alramadi/alphavork/template/icons/favicon-16x16.png"
             },
             {
               "sizes": "32x32",
               "type": "image/png",
-              "url": "https://ik.imagekit.io/alramadi/alphavork/icons/favicon-32x32.png"
+              "url": "https://ik.imagekit.io/alramadi/alphavork/template/icons/favicon-32x32.png"
             },
             {
               "sizes": "192x192",
               "type": "image/png",
-              "url": "https://ik.imagekit.io/alramadi/alphavork/icons/android-chrome-192x192.png"
+              "url": "https://ik.imagekit.io/alramadi/alphavork/template/icons/android-chrome-192x192.png"
             },
             {
               "type": "image/png",
               "sizes": "512x512",
-              "url": "https://ik.imagekit.io/alramadi/alphavork/icons/android-chrome-512x512.png"
+              "url": "https://ik.imagekit.io/alramadi/alphavork/template/icons/android-chrome-512x512.png"
             }
           ],
-          "apple": "https://ik.imagekit.io/alramadi/alphavork/icons/apple-touch-icon.png",
-          "shortcut": "https://ik.imagekit.io/alramadi/alphavork/icons/favicon.ico"
+          "apple": "https://ik.imagekit.io/alramadi/alphavork/template/icons/apple-touch-icon.png",
+          "shortcut": "https://ik.imagekit.io/alramadi/alphavork/template/icons/favicon.ico"
         },
         "authors": [
           {
@@ -201,260 +94,29 @@
           }
         ],
         "creator": "Alphavork"
-      }
-    },
-    "user": {
-      "layout": {
-        "footer": {
-          "title": "Alphavork",
-          "description": "The ultimate boilerplate for building SaaS applications with NextTs and Dot Net Web Api.",
-          "newsletter": {
-            "email": {
-              "label": "Newsletter",
-              "placeholder": "Enter email (e.g. user@alphavork.com, etc...)",
-              "description": "Don't miss any updates."
-            },
-            "actions": {
-              "subscribe": "Subscribe"
-            },
-            "alerts": {
-              "success": "Thank you for subscribing to our newsletter!",
-              "error": "Failed to subscribe to the newsletter. Please try again later."
-            }
-          },
-          "menus": [
-            {
-              "label": "Product",
-              "links": [
-                {
-                  "url": "/features",
-                  "label": "Features & Capabilities"
-                },
-                {
-                  "url": "/pricing",
-                  "label": "Plans & Pricing"
-                },
-                {
-                  "url": "/roadmap",
-                  "label": "Product Roadmap"
-                },
-                {
-                  "url": "/blogs",
-                  "label": "What's New"
-                }
-              ]
-            },
-            {
-              "label": "Company",
-              "links": [
-                {
-                  "url": "/about",
-                  "label": "Our Story"
-                },
-                {
-                  "url": "/careers",
-                  "label": "Join Our Team"
-                },
-                {
-                  "url": "/contact",
-                  "label": "Get in Touch"
-                },
-                {
-                  "url": "/partners",
-                  "label": "Partner with Us"
-                },
-                {
-                  "url": "/catalog",
-                  "label": "Resource Library"
-                }
-              ]
-            },
-            {
-              "label": "Legal",
-              "links": [
-                {
-                  "url": "/license-agreement",
-                  "label": "License Agreement"
-                },
-                {
-                  "url": "/terms-of-service",
-                  "label": "Terms of Service"
-                },
-                {
-                  "url": "/privacy-policy",
-                  "label": "Privacy Policy"
-                },
-                {
-                  "url": "/cookies",
-                  "label": "Cookie Notice"
-                },
-                {
-                  "url": "/security",
-                  "label": "Security & Compliance"
-                }
-              ]
-            }
-          ],
-          "copyrights": "2026 Alphavork. All rights reserved."
-        }
       },
-      "authentication": {
-        "register": {
-          "page": {
-            "metadata": {
-              "title": "Register"
-            },
-            "form": {
-              "avatar": {
-                "label": "Avatar"
-              },
-              "location": {
-                "country": {
-                  "label": "Country",
-                  "placeholder": "Enter country (e.g., United States, etc...)"
-                },
-                "city": {
-                  "label": "City",
-                  "placeholder": "Enter city (e.g., New York, etc...)"
-                },
-                "street": {
-                  "label": "Street",
-                  "placeholder": "Enter street (e.g., 5th Avenue, etc...)"
-                },
-                "latitude": {
-                  "label": "Latitude",
-                  "placeholder": "Enter latitude (e.g., 40.7745062, etc...)"
-                },
-                "longitude": {
-                  "label": "Longitude",
-                  "placeholder": "Enter longitude (e.g., -73.9655418, etc...)"
-                }
-              },
-              "username": {
-                "label": "Username",
-                "placeholder": "Enter username (e.g, nawaf alramadi, etc...)"
-              },
-              "birthday": {
-                "label": "Birthday",
-                "placeholder": "Enter birthday (e.g, <date></date>, etc...)"
-              },
-              "phone-number": {
-                "label": "Phone Number"
-              },
-              "email": {
-                "label": "Email",
-                "placeholder": "Enter email (e.g. user@alphavork.com, etc...)"
-              },
-              "password": {
-                "label": "Password",
-                "placeholder": "Enter password (e.g. Aa1!Aa1!, etc...)"
-              },
-              "remember-me": {
-                "label": "Remember me",
-                "description": "Keeps you logged in on this device for 30 days."
-              },
-              "actions": {
-                "submit": "Submit",
-                "reset": "Reset"
-              },
-              "login": "Already have an account? <link>Login</link>",
-              "terms-and-privacy": "By clicking, you agree to our <terms-of-service>Terms of Service</terms-of-service> and <privacy-policy>Privacy Policy</privacy-policy>.",
-              "alerts": {
-                "success": "Creating your Alphavork account was successfully succeeded",
-                "error": "Something went wrong while creating your Alphavork account"
-              }
-            }
+      "footer": {
+        "copyrights": "© 2026 Alphavork Template. All rights reserved.",
+        "links": [
+          {
+            "url": "https://github.com/nawaf-alramadi/alphavork-template",
+            "label": "GITHUB"
           }
-        },
-        "login": {
-          "page": {
-            "metadata": {
-              "title": "Login"
-            },
-            "form": {
-              "email": {
-                "label": "Email",
-                "placeholder": "Enter email (e.g. user@alphavork.com, etc...)"
-              },
-              "password": {
-                "label": "Password",
-                "placeholder": "Enter password (e.g. Aa1!Aa1!, etc...)",
-                "forgot-password": "Forgot password?"
-              },
-              "remember-me": {
-                "label": "Remember me",
-                "description": "Keeps you logged in on this device for 30 days."
-              },
-              "actions": {
-                "submit": "Submit",
-                "reset": "Reset"
-              },
-              "create-new-account": "New on our platform? <link>Create new account</link>",
-              "separator": "Or continue with",
-              "alerts": {
-                "success": "Logging to your Alphavork account was successfully succeeded",
-                "error": "Something went wrong while logging to your Alphavork account"
-              }
-            }
-          }
-        },
-        "reset-password": {
-          "page": {
-            "metadata": {
-              "title": "Reset Password"
-            },
-            "forms": {
-              "validate-email-form": {
-                "title": "Forgot password?",
-                "description": "No worries, we'll send you a code to reset your password.",
-                "email": {
-                  "label": "Email",
-                  "placeholder": "Enter email (e.g. user@alphavork.com, etc...)"
-                },
-                "actions": {
-                  "verify": "Verify"
-                },
-                "alerts": {
-                  "error": "Something went wrong while verifying your email. Please try again."
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "authentication": {
-      "layout": {
-        "metadata": {
-          "title": {
-            "default": "Authentication | Alphavork",
-            "template": "%s | Alphavork Authentication"
-          },
-          "description": "Complete authentication flows including login, register, email verification, password reset, forgot password, and two-factor authentication."
-        },
-        "header": {
-          "organization": "Alphavork"
-        },
-        "footer": {
-          "copyrights": "2026 Alphavork. All rights reserved."
-        }
-      },
-      "not-found": {
-        "subtitle": "Whoops!",
-        "title": "Something went wrong",
-        "description": " The page you're looking for isn't found, we suggest you to go to the login page.",
-        "actions": {
-          "go-to-the-login-page": "Go to the login page"
-        }
+        ]
       }
     },
     "not-found": {
       "subtitle": "Whoops!",
       "title": "Something went wrong",
       "description": " The page you're looking for isn't found, we suggest you back to home.",
-      "actions": {
-        "go-back-to-home": "Go back to home"
+      "go-back-to-home": {
+        "url": "/",
+        "label": "Go back to home"
       }
+    },
+    "components": {
+      "layout": {},
+      "page": {}
     }
   }
 }

@@ -1,11 +1,11 @@
 import { defineRouting } from "next-intl/routing";
 
-import { localeEnum } from "./enums/locale";
+import { LocaleEnum } from "./enums/locale.enum";
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: Object.values(localeEnum),
+  locales: Object.values(LocaleEnum),
 
   // Used when no locale matches
-  defaultLocale: localeEnum.enUS,
+  defaultLocale: LocaleEnum.EnUs,
 });

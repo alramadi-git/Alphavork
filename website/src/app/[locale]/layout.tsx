@@ -2,29 +2,32 @@ import "../globals.css";
 
 import { Metadata } from "next";
 
-import { environmentEnum } from "@/enums/environment-enum";
+import { EnvironmentEnum } from "@/common/enums/environment.enum";
 
 import { cn } from "@/lib/utils";
 
-import { Cairo } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { routing } from "@/features/i18n/routing";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, getMessages } from "next-intl/server";
 
-// import { DirectionProvider, TextDirection } from "@base-ui/react";
-import ThemeProvider from "@/components/providers/theme";
-import { Toaster } from "@/components/ui/sonner";
+import ThemeProvider from "@/features/components/providers/theme";
+import { Toaster } from "@/features/components/ui/sonner";
 
 import Script from "next/script";
 
-const cairo = Cairo({
+const inter = Inter({
   weight: [
+    "100" /** thin    */,
+    "200" /** extra-light */,
     "300" /** light   */,
     "400" /** normal  */,
     "500" /** medium  */,
+    "600" /** semi-bold */,
     "700" /** bold    */,
+    "800" /** extra-bold */,
     "900" /** black   */,
   ],
   subsets: ["latin"],
@@ -52,7 +55,7 @@ export default async function Layout({ children }: LayoutProps<"/[locale]">) {
       lang={tSettings("locale")}
       dir={tSettings("direction")}
     >
-      <body className={cn(cairo.className, "antialiased")}>
+      <body className={cn(inter.className, "antialiased")}>
         <NextIntlClientProvider
           locale={tSettings("locale")}
           messages={messages}
@@ -67,9 +70,8 @@ export default async function Layout({ children }: LayoutProps<"/[locale]">) {
             <Toaster position="top-right" />
           </ThemeProvider>
         </NextIntlClientProvider>
-
-        {(process.env.NODE_ENV === environmentEnum.development ||
-          process.env.NODE_ENV === environmentEnum.test) && (
+        {(process.env.NODE_ENV === EnvironmentEnum.Development ||
+          process.env.NODE_ENV === EnvironmentEnum.Test) && (
           <Script
             crossOrigin="anonymous"
             src="https://unpkg.com/react-scan/dist/auto.global.js"

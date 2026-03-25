@@ -1,4 +1,4 @@
-import { errorTypeEnum } from "./enums/error-type-enum";
+import { ErrorTypeEnum } from "./enums/error-type.enum";
 
 import { ZodError } from "zod";
 import { AxiosError } from "axios";
@@ -10,14 +10,14 @@ type successServiceType<tData> = {
 
 type errorServiceType = {
   isSuccess: false;
-  type: errorTypeEnum;
+  type: ErrorTypeEnum;
   help: string;
 };
 
 class ErrorService extends Error {
-  public type: errorTypeEnum;
+  public type: ErrorTypeEnum;
 
-  public constructor(type: errorTypeEnum, help: string) {
+  public constructor(type: ErrorTypeEnum, help: string) {
     super(help);
     this.type = type;
   }
@@ -41,7 +41,7 @@ abstract class AbstractService {
       if (error instanceof ZodError) {
         return {
           isSuccess: false,
-          type: errorTypeEnum.validationError,
+          type: ErrorTypeEnum.validationError,
           help: "Validation error. Please check your input and try again.",
         };
       }
@@ -49,14 +49,14 @@ abstract class AbstractService {
       if (error instanceof AxiosError) {
         return {
           isSuccess: false,
-          type: errorTypeEnum.networkError,
+          type: ErrorTypeEnum.networkError,
           help: "A network error occurred. Please try again later.",
         };
       }
 
       return {
         isSuccess: false,
-        type: errorTypeEnum.unknownError,
+        type: ErrorTypeEnum.unknownError,
         help: "An unknown error occurred. Please try again later.",
       };
     }
