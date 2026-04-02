@@ -2,7 +2,7 @@ import Languages from "@/features/components/blocks/languages/languages";
 
 import { Separator } from "@/features/components/ui/separator";
 
-import { LogoImage } from "@/features/components/blocks/images/logo-image";
+import { LogoImage } from "@/features/components/blocks/images/logo-image/logo.image";
 
 import { Link } from "@/features/components/blocks/links/link";
 import NavigationMenu from "./navigation-menu";

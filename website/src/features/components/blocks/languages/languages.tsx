@@ -20,7 +20,7 @@ import {
 } from "@/features/components/ui/command";
 
 import { Button } from "@/features/components/ui/button";
-import { LocaleLink } from "@/features/components/blocks/links/locale-link";
+import { LocaleLink } from "@/features/components/blocks/links/locale-link/locale-link";
 import { LanguagesPropsType } from "./types/languages-props.type";
 import { CountryType } from "./types/country.type";
 import { continents } from "./constants/continents";

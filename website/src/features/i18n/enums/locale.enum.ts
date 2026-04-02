@@ -1,4 +1,4 @@
-enum LocaleEnum {
+export enum LocaleEnum {
   ArMa = "ar-MA",
   EnNg = "en-NG",
   EnZa = "en-ZA",
@@ -15,5 +15,3 @@ enum LocaleEnum {
   EnAu = "en-AU",
   EnNz = "en-NZ",
 }
-
-export { LocaleEnum };

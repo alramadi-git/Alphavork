@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import nextIntlMiddleware from "@/features/i18n/middlewares/next-intl";
+import { nextIntlMiddleware } from "@/features/i18n/middlewares/next-intl.middleware";
 
 export default function middleware(request: NextRequest): NextResponse {
   let middlewares = NextResponse.next();

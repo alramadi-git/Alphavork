@@ -5,17 +5,39 @@
   },
   "components": {
     "images": {
-      "logo": {
+      "logo-image": {
         "url": "https://ik.imagekit.io/alramadi/alphavork/template/logo.png",
         "alternate": "Alphavork Logo"
       },
-      "placeholder": {
+      "placeholder-image": {
         "url": "https://ik.imagekit.io/alramadi/alphavork/template/placeholder.png",
         "alternate": "Placeholder"
       },
-      "not-found": {
+      "not-found-image": {
         "url": "https://ik.imagekit.io/alramadi/alphavork/template/not-found.png",
         "alternate": "Not Found"
+      }
+    },
+    "fields": {
+      "inputs": {
+        "phone-number": {
+          "country": {
+            "default-country-value": {
+              "iso": "us",
+              "country-code": "1"
+            },
+            "placeholder": "Search by (e.g. county name, code or iso)",
+            "no-match": "No matching countries found "
+          }
+        }
+      },
+      "selects": {},
+      "file-upload": {
+        "title": "Drag & drop file here",
+        "help": "Or you could <trigger>chose a file</trigger> to upload",
+        "alerts": {
+          "error": "Something went wrong while uploading file. Please try again."
+        }
       }
     },
     "languages": {
@@ -30,26 +52,6 @@
       "ui": {
         "placeholder": "Search your language...",
         "when-no-match": "No matching languages found"
-      }
-    },
-    "fields": {
-      "phone-number": {
-        "placeholder": "Enter phone number (e.g. 202 555 0123 etc...)",
-        "country": {
-          "default-country-value": {
-            "iso": "us",
-            "country-code": "1"
-          },
-          "placeholder": "Search by (e.g. county name, code or iso)",
-          "no-match": "No matching countries found "
-        }
-      },
-      "file-upload": {
-        "title": "Drag & drop file here",
-        "help": "Or you could <trigger>chose a file</trigger> to upload",
-        "alerts": {
-          "error": "Something went wrong while uploading file. Please try again."
-        }
       }
     }
   },
