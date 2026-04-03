@@ -9,6 +9,8 @@ import {
   useImperativeHandle,
 } from "react";
 
+import { useTranslations } from "next-intl";
+
 import { IconX, IconCheck, IconChevronsDown } from "@tabler/icons-react";
 
 import {
@@ -55,6 +57,10 @@ export const MultiSelectField = forwardRef(
     }: MultiSelectProps<TGroup, TOption>,
     ref: Ref<MultiSelectRef<TOption>>,
   ): ReactElement<typeof Popover> => {
+    const tMultiSelect = useTranslations(
+      "components.fields.selects.multi-select",
+    );
+
     const [isOpen, setIsOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -136,7 +142,11 @@ export const MultiSelectField = forwardRef(
                         setIsExpanded((prev) => !prev);
                       }}
                     >
-                      {isExpanded ? "أخفي" : "أظهر المزيد"}
+                      {isExpanded
+                        ? tMultiSelect("show-less")
+                        : tMultiSelect("show-more", {
+                            count: hiddenCount,
+                          })}
                     </Badge>
                   )}
                 </Fragment>

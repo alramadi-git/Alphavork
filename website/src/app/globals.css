@@ -186,11 +186,6 @@
 }
 
 @layer base {
-  [aria-disabled="true"],
-  [disabled="true"] {
-    @apply pointer-events-none opacity-50;
-  }
-
   * {
     @apply border-border outline-ring/50;
   }
@@ -212,15 +207,15 @@
     @apply cursor-pointer;
   }
 
-  .h-fullscreen {
-    @apply min-h-dvh;
-  }
-
   .section {
     @apply px-8 py-12;
   }
 
   .container {
     @apply mx-auto;
+  }
+
+  .h-fullscreen {
+    @apply min-h-[calc(100dvh-122px)];
   }
 }

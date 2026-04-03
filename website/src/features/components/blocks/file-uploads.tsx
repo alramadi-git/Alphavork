@@ -46,7 +46,9 @@ const FieldFileUpload = forwardRef<tFieldFileUploadRef, tFieldFileUploadProps>(
   ) => {
     const tFileUpload = useTranslations("components.fields.file-upload");
 
-    const [value, setValue] = useState<NullableType<File>>(defaultValue ?? null);
+    const [value, setValue] = useState<NullableType<File>>(
+      defaultValue ?? null,
+    );
 
     const inputRef = useRef<HTMLInputElement>(null);
 

@@ -1,6 +1,8 @@
+import { EnvironmentEnum } from "@/common/enums/environment.enum";
+
 import { getTranslations } from "next-intl/server";
 
-import { EnvironmentEnum } from "@/common/enums/environment.enum";
+import { NavigationMenuGroupType } from "./types/navigation-menu-group.type";
 
 import {
   NavigationMenu as ShadcnNavigationMenu,
@@ -11,8 +13,7 @@ import {
   NavigationMenuLink,
 } from "@/features/components/ui/navigation-menu";
 
-import { Link } from "@/features/components/blocks/links/link";
-import { NavigationMenuGroupType } from "./types/navigation-menu-group.type";
+import { Link } from "@/features/components/blocks/links/link/link";
 
 export default async function NavigationMenu() {
   const tHeader = await getTranslations("app.layout.header");

@@ -31,7 +31,16 @@
           }
         }
       },
-      "selects": {},
+      "selects": {
+        "multi-select": {
+          "show-more": "{count}+ More",
+          "show-less": "Show less"
+        },
+        "multi-searchable-select": {
+          "show-more": "{count}+ More",
+          "show-less": "Show less"
+        }
+      },
       "file-upload": {
         "title": "Drag & drop file here",
         "help": "Or you could <trigger>chose a file</trigger> to upload",
@@ -42,7 +51,8 @@
     },
     "languages": {
       "data": {
-        "default-country": {
+        "default-value": {
+          "value": "English (United States)",
           "direction": "ltr",
           "locale": "en-US",
           "flag": "🇺🇸",

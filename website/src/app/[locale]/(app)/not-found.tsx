@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { NotFoundImage } from "@/features/components/blocks/images/not-found-image/not-found.image";
 
 import { Button } from "@/features/components/ui/button";
-import { Link } from "@/features/components/blocks/links/link";
+import { Link } from "@/features/components/blocks/links/link/link";
 
 export default function NotFound() {
   const tNotFound = useTranslations("app.not-found");

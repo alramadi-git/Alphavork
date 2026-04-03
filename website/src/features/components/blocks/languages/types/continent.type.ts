@@ -1,6 +1,5 @@
+import { GroupType } from "../../fields/selects/types/group.type";
+
 import { CountryType } from "./country.type";
 
-export type ContinentType = {
-  label: string;
-  countries: CountryType[];
-};
+export type ContinentType = GroupType<CountryType>;

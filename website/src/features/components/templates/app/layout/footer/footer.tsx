@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
-import { Link } from "@/features/components/blocks/links/link";
 import { LinkType } from "@/features/components/blocks/links/types/link.type";
+import { Link } from "@/features/components/blocks/links/link/link";
 
 export default async function Footer() {
   const tFooter = await getTranslations("app.layout.footer");
