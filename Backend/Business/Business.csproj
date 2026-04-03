@@ -7,14 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="16.0.0" />
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="Imagekit" Version="5.0.0" />
-    <PackageReference Include="libphonenumber-csharp" Version="9.0.25" />
-    <PackageReference Include="MailKit" Version="4.15.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="9.0.27" />
+    <PackageReference Include="MailKit" Version="4.15.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.9" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
   </ItemGroup>
 
   <ItemGroup>
