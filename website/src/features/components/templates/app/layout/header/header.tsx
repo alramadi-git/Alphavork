@@ -1,4 +1,4 @@
-import NavigationMenu from "./navigation-menu";
+import NavigationMenu from "./navigation-menu/navigation-menu";
 
 import { Separator } from "@/features/components/ui/separator";
 

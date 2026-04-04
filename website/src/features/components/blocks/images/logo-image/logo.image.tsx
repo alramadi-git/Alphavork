@@ -11,8 +11,7 @@ export function LogoImage({
   className,
   ...props
 }: Omit<ImageProps, "src" | "alt">) {
-  const logoImage: ImageType =
-    useTranslations("components.images").raw("logo-image");
+  const logoImage: ImageType = useTranslations("components.images").raw("logo");
 
   return (
     <FullHDImage

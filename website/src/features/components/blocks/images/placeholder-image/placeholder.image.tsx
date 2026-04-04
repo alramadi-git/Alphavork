@@ -12,7 +12,7 @@ export function PlaceholderImage({
   ...props
 }: Omit<ImageProps, "src" | "alt">) {
   const placeholderImage: ImageType =
-    useTranslations("components.images").raw("placeholder-image");
+    useTranslations("components.images").raw("placeholder");
 
   return (
     <FullHDImage

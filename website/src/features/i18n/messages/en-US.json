@@ -5,15 +5,15 @@
   },
   "components": {
     "images": {
-      "logo-image": {
+      "logo": {
         "url": "https://ik.imagekit.io/alramadi/alphavork/template/logo.png",
         "alternate": "Alphavork Logo"
       },
-      "placeholder-image": {
+      "placeholder": {
         "url": "https://ik.imagekit.io/alramadi/alphavork/template/placeholder.png",
         "alternate": "Placeholder"
       },
-      "not-found-image": {
+      "not-found": {
         "url": "https://ik.imagekit.io/alramadi/alphavork/template/not-found.png",
         "alternate": "Not Found"
       }
@@ -26,8 +26,8 @@
               "iso": "us",
               "country-code": "1"
             },
-            "placeholder": "Search by (e.g. county name, code or iso)",
-            "no-match": "No matching countries found "
+            "placeholder": "Search by (e.g. county name, code or iso).",
+            "when-no-match": "No matching countries found."
           }
         }
       },
@@ -115,23 +115,29 @@
               {
                 "url": "/",
                 "label": "Home",
-                "description": "Go to homepage — your starting point for everything"
+                "description": "Go to homepage — your starting point for everything."
               },
               {
                 "url": "/about",
                 "label": "About",
-                "description": "Learn about who we are, what we believe, and where we're headed"
+                "description": "Learn about who we are, what we believe, and where we're headed."
               },
               {
                 "url": "/contact",
                 "label": "Contact",
-                "description": "Connect with our team for support, feedback, or general inquiries"
+                "description": "Connect with our team for support, feedback, or general inquiries."
               }
             ]
           },
           {
             "label": "Components",
-            "links": []
+            "links": [
+              {
+                "url": "/components",
+                "label": "Components",
+                "description": "A collection of reusable UI components for building web SAAS applications."
+              }
+            ]
           }
         ]
       },

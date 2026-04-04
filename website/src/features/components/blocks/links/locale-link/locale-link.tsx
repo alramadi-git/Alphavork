@@ -4,11 +4,11 @@ import { usePathname, useSearchParams } from "next/navigation";
 
 import { SearchParamsUtil } from "@/features/utils/search-params/search-params.util";
 
-import { LinkPropsType } from "../types/link.props";
+import { LinkProps } from "../types/link.props";
 
 import { Link } from "../link/link";
 
-export function LocaleLink(props: Omit<LinkPropsType, "href">) {
+export function LocaleLink(props: Omit<LinkProps, "href">) {
   const pathname = usePathname();
 
   const searchParams = new SearchParamsUtil(useSearchParams().toString());

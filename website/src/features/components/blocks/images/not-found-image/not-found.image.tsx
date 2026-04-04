@@ -12,7 +12,7 @@ export function NotFoundImage({
   ...props
 }: Omit<ImageProps, "width" | "height" | "src" | "alt">) {
   const notFoundImage: ImageType =
-    useTranslations("components.images").raw("not-found-image");
+    useTranslations("components.images").raw("not-found");
 
   return (
     <FullHDImage
