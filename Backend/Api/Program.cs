@@ -28,12 +28,12 @@ builder.Services.AddDbContext<Database.Contexts.AppDbContext>(options => options
 // -------------------------------------------------------
 builder.Services.Scan(scan => scan
     .FromAssemblies(
-        typeof(Database.Interfaces.IAssemblyReference).Assembly,
-        typeof(Business.Interfaces.IAssemblyReference).Assembly
+        typeof(Business.Interfaces.IAssemblyReference).Assembly,
+        typeof(Database.Interfaces.IAssemblyReference).Assembly
     )
-    .AddClasses(c => c.AssignableTo<Database.Interfaces.IRepository>()).AsSelf().WithScopedLifetime()
-    .AddClasses(c => c.AssignableTo<Business.Interfaces.IService>()).AsSelf().WithScopedLifetime()
     .AddClasses(c => c.AssignableTo<Business.Interfaces.IGuard>()).AsSelf().WithScopedLifetime()
+    .AddClasses(c => c.AssignableTo<Business.Interfaces.IService>()).AsSelf().WithScopedLifetime()
+    .AddClasses(c => c.AssignableTo<Database.Interfaces.IRepository>()).AsSelf().WithScopedLifetime()
     .AddClasses(c => c.AssignableTo(typeof(IValidator<>))).AsSelf().WithScopedLifetime()
 );
 

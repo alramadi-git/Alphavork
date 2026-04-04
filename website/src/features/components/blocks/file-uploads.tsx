@@ -14,7 +14,7 @@ import {
 
 import { useDropzone, FileRejection } from "react-dropzone";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/features/components/ui/utils/utils";
 
 import { toast } from "sonner";
 

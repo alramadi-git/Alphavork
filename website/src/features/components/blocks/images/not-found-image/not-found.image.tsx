@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/features/components/ui/utils/utils";
 
 import { useTranslations } from "next-intl";
 

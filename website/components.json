@@ -13,11 +13,11 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
+    "components": "@/features/components",
     "ui": "@/features/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "lib": "@/features/components/lib",
+    "utils": "@/features/components/utils",
+    "hooks": "@/features/components/hooks"
   },
   "registries": {
     "@coss": "https://coss.com/ui/r/{name}.json",

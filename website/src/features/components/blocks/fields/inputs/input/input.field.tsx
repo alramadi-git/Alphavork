@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/features/components/ui/utils/utils";
 
 import { useState, forwardRef, useRef, useImperativeHandle } from "react";
 

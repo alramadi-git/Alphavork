@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 import { EnvironmentEnum } from "@/common/enums/environment.enum";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/features/components/ui/utils/utils";
 
 import { Inter } from "next/font/google";
 
