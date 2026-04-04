@@ -2,11 +2,11 @@ import NavigationMenu from "./navigation-menu/navigation-menu";
 
 import { Separator } from "@/features/components/ui/separator";
 
+import { Link } from "@/features/components/blocks/links/link/link";
+
 import { LogoImage } from "@/features/components/blocks/images/logo-image/logo.image";
 
 import Languages from "@/features/components/blocks/languages/languages";
-
-import { Link } from "@/features/components/blocks/links/link/link";
 
 export default async function Header() {
   return (

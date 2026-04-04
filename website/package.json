@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 5173",
+    "dev": "next dev --turbopack --hostname localhost --port 5173",
     "build": "next build --turbopack",
-    "start": "next start --port 5173",
+    "start": "next start --hostname localhost --port 5173 ",
     "lint": "eslint"
   },
   "dependencies": {
