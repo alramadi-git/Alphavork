@@ -110,24 +110,8 @@
       "header": {
         "navigation-menu-groups": [
           {
-            "label": "App",
-            "links": [
-              {
-                "url": "/",
-                "label": "Home",
-                "description": "Go to homepage — your starting point for everything."
-              },
-              {
-                "url": "/about",
-                "label": "About",
-                "description": "Learn about who we are, what we believe, and where we're headed."
-              },
-              {
-                "url": "/contact",
-                "label": "Contact",
-                "description": "Connect with our team for support, feedback, or general inquiries."
-              }
-            ]
+            "url": "/",
+            "label": "App"
           },
           {
             "label": "Components",
@@ -151,6 +135,10 @@
         ]
       }
     },
+    "components": {
+      "layout": {},
+      "page": {}
+    },
     "not-found": {
       "subtitle": "Whoops!",
       "title": "Something went wrong",
@@ -159,10 +147,6 @@
         "url": "/",
         "label": "Go back to home"
       }
-    },
-    "components": {
-      "layout": {},
-      "page": {}
     }
   }
 }
