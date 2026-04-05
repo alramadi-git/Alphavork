@@ -6,7 +6,7 @@ import { EnvironmentEnum } from "@/common/enums/environment.enum";
 
 import { cn } from "@/features/components/ui/utils/utils";
 
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 
 import { routing } from "@/features/i18n/routing";
 
@@ -18,16 +18,13 @@ import { Toaster } from "@/features/components/ui/sonner";
 
 import Script from "next/script";
 
-const inter = Inter({
+const roboto = Roboto({
   weight: [
     "100" /** thin    */,
-    "200" /** extra-light */,
     "300" /** light   */,
     "400" /** normal  */,
     "500" /** medium  */,
-    "600" /** semi-bold */,
     "700" /** bold    */,
-    "800" /** extra-bold */,
     "900" /** black   */,
   ],
   subsets: ["latin"],
@@ -55,7 +52,7 @@ export default async function Layout({ children }: LayoutProps<"/[locale]">) {
       lang={tSettings("locale")}
       dir={tSettings("direction")}
     >
-      <body className={cn(inter.className, "antialiased")}>
+      <body className={cn(roboto.className, "antialiased")}>
         <NextIntlClientProvider
           locale={tSettings("locale")}
           messages={messages}

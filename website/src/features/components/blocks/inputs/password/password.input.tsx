@@ -8,10 +8,10 @@ import { PasswordRef } from "./password.ref";
 import { PasswordProps } from "./password.props";
 
 import { InputRef } from "../input/input.ref";
-import { InputField } from "../input/input.field";
+import { Input } from "../input/input";
 import { Button } from "@/features/components/ui/button";
 
-export const PasswordField = forwardRef<PasswordRef, PasswordProps>(
+export const PasswordInput = forwardRef<PasswordRef, PasswordProps>(
   (
     {
       id,
@@ -50,7 +50,7 @@ export const PasswordField = forwardRef<PasswordRef, PasswordProps>(
 
     return (
       <div aria-disabled={isDisabled} className="relative">
-        <InputField
+        <Input
           ref={inputRef}
           id={id}
           isInvalid={isInvalid}
@@ -81,4 +81,4 @@ export const PasswordField = forwardRef<PasswordRef, PasswordProps>(
   },
 );
 
-PasswordField.displayName = "PasswordField";
+PasswordInput.displayName = "PasswordInput";

@@ -21,7 +21,7 @@ export default async function Header() {
             className="data-[orientation=vertical]:h-10"
           />
           <div className="grow">
-            <div className="w-fit">
+            <div className="w-64">
               <Languages />
             </div>
           </div>

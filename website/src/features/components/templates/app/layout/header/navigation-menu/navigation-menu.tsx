@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { NavigationMenuGroupType } from "./types/navigation-menu-group.type";
+import { NavigationMenuType } from "./types/navigation-menu.type";
 
 import {
   NavigationMenu as ShadcnNavigationMenu,
@@ -16,14 +16,14 @@ import { Link } from "@/features/components/blocks/links/link/link";
 export default async function NavigationMenu() {
   const tHeader = await getTranslations("app.layout.header");
 
-  const navigationMenuGroups: NavigationMenuGroupType[] = tHeader.raw(
-    "navigation-menu-groups",
+  const navigationMenu: NavigationMenuType[] = tHeader.raw(
+    "data.navigation-menu",
   );
 
   return (
     <ShadcnNavigationMenu className="z-20">
       <NavigationMenuList>
-        {navigationMenuGroups.map((navigationMenuGroup, index) => {
+        {navigationMenu.map((navigationMenuGroup, index) => {
           if (!("links" in navigationMenuGroup)) {
             return (
               <NavigationMenuItem key={index}>

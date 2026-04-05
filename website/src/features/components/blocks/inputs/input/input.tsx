@@ -7,9 +7,9 @@ import { useState, forwardRef, useRef, useImperativeHandle } from "react";
 import { InputRef } from "./input.ref";
 import { InputProps } from "./input.props";
 
-import { Input } from "@/features/components/ui/input";
+import { Input as ShadcnInput } from "@/features/components/ui/input";
 
-export const InputField = forwardRef<InputRef, InputProps>(
+export const Input = forwardRef<InputRef, InputProps>(
   (
     {
       icon,
@@ -82,7 +82,7 @@ export const InputField = forwardRef<InputRef, InputProps>(
             {icon}
           </span>
         )}
-        <Input
+        <ShadcnInput
           aria-invalid={isInvalid}
           id={id}
           ref={inputRef}
@@ -107,4 +107,4 @@ export const InputField = forwardRef<InputRef, InputProps>(
   },
 );
 
-InputField.displayName = "InputField";
+Input.displayName = "Input";

@@ -35,7 +35,7 @@ import { GroupType } from "../types/group.type";
 import { SingleSearchableSelectRef } from "./single-searchable-select.ref";
 import { SingleSearchableSelectProps } from "./single-searchable-select.props";
 
-export const SingleSearchableSelectField = forwardRef(
+export const SingleSearchableSelect = forwardRef(
   <TGroup extends GroupType<TOption>, TOption extends OptionType>(
     {
       id,
@@ -175,4 +175,4 @@ export const SingleSearchableSelectField = forwardRef(
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-SingleSearchableSelectField.displayName = "SingleSearchableSelectField";
+SingleSearchableSelect.displayName = "SingleSearchableSelect";

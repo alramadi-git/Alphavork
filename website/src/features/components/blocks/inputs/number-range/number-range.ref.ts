@@ -1,4 +1,4 @@
-import { NumberRangeType } from "./number-range.type";
+import { NumberRangeType } from "./types/number-range.type";
 
 export type NumberRangeRef = {
   setValue(value: NumberRangeType): void;

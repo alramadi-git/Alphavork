@@ -9,7 +9,7 @@ import { ContinentType } from "./types/continent.type";
 
 import { continents } from "./constants/continents";
 
-import { SingleSearchableSelectField } from "../fields/selects/single-searchable-select/single-searchable-select.field";
+import { SingleSearchableSelect } from "../selects/single-searchable-select/single-searchable.select";
 import { LocaleLink } from "../links/locale-link/locale-link";
 
 export default function Languages() {
@@ -18,7 +18,7 @@ export default function Languages() {
   const defaultValue: CountryType = tLanguages.raw("data.default-value");
 
   return (
-    <SingleSearchableSelectField<ContinentType, CountryType>
+    <SingleSearchableSelect<ContinentType, CountryType>
       defaultValue={defaultValue}
       search={{
         placeholder: tLanguages("ui.placeholder"),
@@ -28,7 +28,7 @@ export default function Languages() {
       render={(option) => (
         <div className="flex min-w-46 items-center gap-3">
           <span className="text-lg leading-none">{option.flag}</span>
-          <span dir={option.direction} className="line-clamp-1">
+          <span dir={option.direction} className="line-clamp-1 font-normal">
             {option.label}
           </span>
         </div>
@@ -36,10 +36,12 @@ export default function Languages() {
       renderOption={(option, isSelected) => (
         <LocaleLink locale={option.locale}>
           <span className="text-lg leading-none">{option.flag}</span>
-          <span dir={option.direction} className="line-clamp-1">
-            {option.label}
+          <span className="flex items-center gap-2">
+            <span dir={option.direction} className="line-clamp-1">
+              {option.label}
+            </span>
+            {isSelected && <IconCheck className="size-4" />}
           </span>
-          {isSelected && <IconCheck className="size-4" />}
         </LocaleLink>
       )}
     />

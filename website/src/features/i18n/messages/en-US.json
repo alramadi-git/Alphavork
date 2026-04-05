@@ -108,22 +108,34 @@
         "creator": "Alphavork"
       },
       "header": {
-        "navigation-menu-groups": [
-          {
-            "url": "/",
-            "label": "App"
-          },
-          {
-            "label": "Components",
-            "links": [
-              {
-                "url": "/components",
-                "label": "Components",
-                "description": "A collection of reusable UI components for building web SAAS applications."
-              }
-            ]
-          }
-        ]
+        "data": {
+          "navigation-menu": [
+            {
+              "url": "/",
+              "label": "App"
+            },
+            {
+              "label": "Components",
+              "links": [
+                {
+                  "url": "/components",
+                  "label": "Components",
+                  "description": "A collection of reusable UI components for building web SAAS applications."
+                },
+                {
+                  "url": "/components/inputs",
+                  "label": "Inputs",
+                  "description": "Handles the collection of user-provided data through various text and value entry fields."
+                },
+                {
+                  "url": "/components/selects",
+                  "label": "Selects",
+                  "description": "Enables users to make single or multiple choices from a predefined set of options."
+                }
+              ]
+            }
+          ]
+        }
       },
       "footer": {
         "copyrights": "© 2026 Alphavork Template. All rights reserved.",
@@ -135,9 +147,28 @@
         ]
       }
     },
+    "page": {
+      "hero": {
+        "title": "UI Components for SAAS Applications",
+        "description": "A comprehensive SaaS boilerplate built with Next.js and .NET Web API, providing everything you need to launch your software-as-a-service product quickly and efficiently.",
+        "explore-more": {
+          "url": "/components",
+          "label": "Explore more"
+        }
+      }
+    },
     "components": {
       "layout": {},
-      "page": {}
+      "page": {
+        "inputs": {
+          "title": "Inputs",
+          "description": "Handles the collection of user-provided data through various text and value entry fields."
+        },
+        "selects": {
+          "title": "Selects",
+          "description": "Enables users to make single or multiple choices from a predefined set of options."
+        }
+      }
     },
     "not-found": {
       "subtitle": "Whoops!",

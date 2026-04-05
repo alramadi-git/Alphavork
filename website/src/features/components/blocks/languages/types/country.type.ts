@@ -1,4 +1,4 @@
-import { OptionType } from "../../fields/selects/types/option.type";
+import { OptionType } from "../../selects/types/option.type";
 
 export type CountryType = OptionType & {
   direction: string;

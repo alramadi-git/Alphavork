@@ -10,7 +10,7 @@ import { PhoneNumberRef } from "./phone-number.ref";
 import { PhoneNumberProps } from "./phone-number.props";
 
 import { InputRef } from "../input/input.ref";
-import { InputField } from "../input/input.field";
+import { Input } from "../input/input";
 import {
   Popover,
   PopoverContent,

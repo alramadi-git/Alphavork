@@ -7,10 +7,10 @@ import { UndefinableType } from "@/common/types/undefinable.type";
 import { NumberRef } from "./number.ref";
 import { NumberProps } from "./number.props";
 
-import { InputRef } from "../../inputs/input/input.ref";
-import { InputField } from "../../inputs/input/input.field";
+import { InputRef } from "../input/input.ref";
+import { Input } from "../input/input";
 
-export const NumberField = forwardRef<NumberRef, NumberProps>(
+export const NumberInput = forwardRef<NumberRef, NumberProps>(
   (
     {
       icon,
@@ -72,7 +72,7 @@ export const NumberField = forwardRef<NumberRef, NumberProps>(
     }
 
     return (
-      <InputField
+      <Input
         icon={icon}
         id={id}
         ref={inputRef}
@@ -90,4 +90,4 @@ export const NumberField = forwardRef<NumberRef, NumberProps>(
   },
 );
 
-NumberField.displayName = "NumberField";
+NumberInput.displayName = "NumberInput";

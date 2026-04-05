@@ -4,15 +4,15 @@ import { useState, forwardRef, useRef, useImperativeHandle } from "react";
 
 import { UndefinableType } from "@/common/types/undefinable.type";
 
-import { NumberRangeType } from "./number-range.type";
+import { NumberRangeType } from "./types/number-range.type";
 
 import { NumberRangeRef } from "./number-range.ref";
 import { NumberRangeProps } from "./number-range.props";
 
 import { NumberRef } from "../number/number.ref";
-import { NumberField } from "../number/number.field";
+import { NumberInput } from "../number/number.input";
 
-export const NumberRangeField = forwardRef<NumberRangeRef, NumberRangeProps>(
+export const NumberRangeInput = forwardRef<NumberRangeRef, NumberRangeProps>(
   (
     { id, isInvalid, isDisabled, isRequired, minProps, maxProps, formatter },
     ref,
@@ -62,7 +62,7 @@ export const NumberRangeField = forwardRef<NumberRangeRef, NumberRangeProps>(
 
     return (
       <div className="flex">
-        <NumberField
+        <NumberInput
           id={id}
           ref={minNumberRef}
           isInvalid={isInvalid}
@@ -73,7 +73,7 @@ export const NumberRangeField = forwardRef<NumberRangeRef, NumberRangeProps>(
           onValueChange={(value) => onValueChange("min", value)}
           formatter={formatter}
         />
-        <NumberField
+        <NumberInput
           id={id}
           ref={maxNumberRef}
           isInvalid={isInvalid}
@@ -89,4 +89,4 @@ export const NumberRangeField = forwardRef<NumberRangeRef, NumberRangeProps>(
   },
 );
 
-NumberRangeField.displayName = "NumberRangeField";
+NumberRangeInput.displayName = "NumberRangeInput";

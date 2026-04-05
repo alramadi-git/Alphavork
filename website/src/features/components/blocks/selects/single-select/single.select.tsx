@@ -33,7 +33,7 @@ import { GroupType } from "../types/group.type";
 import { SingleSelectRef } from "./single-select.ref";
 import { SingleSelectProps } from "./single-select.props";
 
-export const SingleSelectField = forwardRef(
+export const SingleSelect = forwardRef(
   <TGroup extends GroupType<TOption>, TOption extends OptionType>(
     {
       id,
@@ -169,4 +169,4 @@ export const SingleSelectField = forwardRef(
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-SingleSelectField.displayName = "SingleSelectField";
+SingleSelect.displayName = "SingleSelect";

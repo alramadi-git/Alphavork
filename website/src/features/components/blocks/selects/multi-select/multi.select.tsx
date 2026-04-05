@@ -36,7 +36,7 @@ import { OptionType } from "../types/option.type";
 import { MultiSelectRef } from "./multi-select.ref";
 import { MultiSelectProps } from "./multi-select.props";
 
-export const MultiSelectField = forwardRef(
+export const MultiSelect = forwardRef(
   <TGroup extends GroupType<TOption>, TOption extends OptionType>(
     {
       id,
@@ -202,4 +202,4 @@ export const MultiSelectField = forwardRef(
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-MultiSelectField.displayName = "FieldMultiSelect";
+MultiSelect.displayName = "MultiSelect";

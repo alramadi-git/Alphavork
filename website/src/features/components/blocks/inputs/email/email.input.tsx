@@ -8,9 +8,9 @@ import { EmailRef } from "./email.ref";
 import { EmailProps } from "./email.props";
 
 import { InputRef } from "../input/input.ref";
-import { InputField } from "../input/input.field";
+import { Input } from "../input/input";
 
-export const EmailField = forwardRef<EmailRef, EmailProps>(
+export const EmailInput = forwardRef<EmailRef, EmailProps>(
   (
     {
       id,
@@ -42,7 +42,7 @@ export const EmailField = forwardRef<EmailRef, EmailProps>(
     }
 
     return (
-      <InputField
+      <Input
         icon={<IconMail className="size-4" />}
         id={id}
         ref={inputRef}
@@ -58,4 +58,4 @@ export const EmailField = forwardRef<EmailRef, EmailProps>(
   },
 );
 
-EmailField.displayName = "EmailField";
+EmailInput.displayName = "EmailInput";
